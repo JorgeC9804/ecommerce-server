@@ -10,12 +10,12 @@ const sequelize = new Sequelize({
   port: 5432,
   dialect: "postgres",
   logging: false,
-  /*dialectOptions: {
+  dialectOptions: {
     ssl: {
       require: true,
       rejectUnauthorized: false,
     },
-  },*/
+  },
 });
 /**
  * conectar a la base de datos de heroku
