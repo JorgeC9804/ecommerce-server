@@ -25,6 +25,19 @@ const handleAdd = information => {
   ];
 };
 
-handleAdd(title);
+// handleAdd(title);
 
-console.log(info);
+// console.log(info);
+
+// const Ali = { a: 1, b: 2, c: 3 };
+
+const Ali = [1, 2, 3, 4, 5, 6];
+
+for (const prop in Ali) {
+  /**
+   * es como pasarle a prop la inicializacion igual a cero
+   * y las propiedades
+   */
+
+  console.log(prop);
+}

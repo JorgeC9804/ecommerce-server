@@ -9,6 +9,7 @@ const sequelize = new Sequelize({
   port: 5432,
   database: "ecommerce",
   dialect: "postgres",
+  logging: false,
 });
 
 /**
