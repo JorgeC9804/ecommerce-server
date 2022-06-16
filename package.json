@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "crude": "nodemon nodeCrude.js",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "author": "Jorge Castro",
   "license": "ISC",
