@@ -98,7 +98,7 @@ exports.loginUser = catchAsync(async (req, res, next) => {
     return next(new AppError(404, "credentials are invalid"));
   }
 
-  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+  const token = jwt.sign({ id: user.id }, `${process.env.JWT_SECRET}`, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
