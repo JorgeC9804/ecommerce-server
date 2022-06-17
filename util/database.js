@@ -6,16 +6,16 @@ const sequelize = new Sequelize({
   host: process.env.DB_HOST, // local host
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB,
   port: 5432,
+  database: process.env.DB,
   dialect: "postgres",
   logging: false,
-  dialectOptions: {
+  /*dialectOptions: {
     ssl: {
       require: true,
       rejectUnauthorized: false,
     },
-  },
+  },*/
 });
 /**
  * conectar a la base de datos de heroku
