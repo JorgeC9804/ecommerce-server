@@ -28,7 +28,7 @@ exports.validateSession = catchAsync(async (req, res, next) => {
 
   const decodedToken = await promisify(jwt.verify)(
     token,
-    process.env.JWT_SECRET
+    `${process.env.JWT_SECRET}`
   );
 
   const user = await User.findOne({
