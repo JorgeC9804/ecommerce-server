@@ -6,9 +6,11 @@ const app = express();
 // Routers
 const { userRouter } = require("./routes/users.routes");
 const { linkRouter } = require("./routes/links.routes");
+const { iconsRouter } = require("./routes/icons.routes");
 const { categoriesRouter } = require("./routes/categories.routes");
 const { productsRouter } = require("./routes/products.routes");
 const { userCartRouter } = require("./routes/userCart.routes");
+const { productsLoadedRouter } = require("./routes/productsLoaded.routes");
 
 app.use(cors());
 
@@ -47,6 +49,12 @@ app.use("/api/v1/products", productsRouter);
 
 // userCart
 app.use("/api/v1/userCart", userCartRouter);
+
+// productsLoaded
+app.use("/api/v1/loadedProducts", productsLoadedRouter);
+
+// icons
+app.use("/api/v1/icons", iconsRouter);
 
 app.use((err, req, res, next) => {
   /**

@@ -30,6 +30,10 @@ exports.getUsers = catchAsync(async (req, res, next) => {
     attributes: { exclude: ["password"] },
   });
 
+  const allUsers = User.findAll()
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+
   res.status(200).json({
     status: "success",
     data: users,

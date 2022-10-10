@@ -14,8 +14,6 @@ exports.getLinks = async (req, res, next) => {
   });
 };
 
-exports.getLinkByID = (req, res, next) => {};
-
 exports.createLink = catchAsync(async (req, res, next) => {
   const { link, category, linkname, password } = req.body;
 
@@ -39,5 +37,3 @@ exports.createLink = catchAsync(async (req, res, next) => {
     data: createLink,
   });
 });
-
-exports.deleteLink = (req, res, next) => {};

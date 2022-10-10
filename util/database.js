@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
       require: true,
       rejectUnauthorized: false,
     },
-  },
+  } /**/,
 });
 /**
  * conectar a la base de datos de heroku

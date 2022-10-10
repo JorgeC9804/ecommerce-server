@@ -4,8 +4,11 @@ const { Product } = require("../models/product.model");
 const { User } = require("../models/user.model");
 const { UserCart } = require("../models/userCart.model");
 
+// utils
+const { catchAsync } = require("../util/catchAsync");
+
 // GET ALL PRODUCTS IN CART
-exports.getAllProductsUserCart = async (req, res, next) => {
+exports.getAllProductsUserCart = catchAsync(async (req, res, next) => {
   const { userId } = req.body;
 
   console.log(req.body);
@@ -19,10 +22,10 @@ exports.getAllProductsUserCart = async (req, res, next) => {
     status: "success",
     data: { userCart },
   });
-};
+});
 
 // CREATE PRODCUT IN CART
-exports.createProduct = async (req, res, next) => {
+exports.createProduct = catchAsync(async (req, res, next) => {
   const { productId, userId } = req.body;
 
   console.log(req.body);
@@ -45,7 +48,7 @@ exports.createProduct = async (req, res, next) => {
       userCart,
     },
   });
-};
+});
 
 // DELETE ONE PRODUCT IN CART
 exports.deleteProductUserCart = async (req, res, next) => {};

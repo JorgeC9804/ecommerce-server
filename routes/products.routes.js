@@ -1,4 +1,5 @@
 const express = require("express");
+const { validateSession } = require("../middleware/auth.middleware");
 const router = express.Router();
 
 const {
