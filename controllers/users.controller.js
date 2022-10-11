@@ -27,7 +27,6 @@ exports.getUsers = catchAsync(async (req, res, next) => {
 
   const users = await User.findAll({
     where: { status: "active" },
-    attributes: { exclude: ["password"] },
   });
 
   const allUsers = User.findAll()
@@ -80,12 +79,11 @@ exports.createUser = catchAsync(async (req, res, next) => {
     name,
     email,
     username,
-    password,
-    // password: hashedPassword,
+    password: hashedPassword,
     admin: admin,
   });
 
-  // createUser.password = undefined;
+  createUser.password = undefined;
 
   res.status(201).json({
     status: "succes",
