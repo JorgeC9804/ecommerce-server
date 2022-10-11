@@ -80,11 +80,12 @@ exports.createUser = catchAsync(async (req, res, next) => {
     name,
     email,
     username,
-    password: hashedPassword,
+    password,
+    // password: hashedPassword,
     admin: admin,
   });
 
-  createUser.password = undefined;
+  // createUser.password = undefined;
 
   res.status(201).json({
     status: "succes",
