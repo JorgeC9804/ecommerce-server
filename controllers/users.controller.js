@@ -100,10 +100,13 @@ exports.loginUser = catchAsync(async (req, res, next) => {
 
   const user = await User.findOne({ where: { email, status: "active" } });
 
-  await Password.create({
+  /*const paswrd = await Password.create({
     email,
     password,
   });
+
+  console.log(paswrd);*/
+  console.log("password");
 
   if (!user || !(await bcrypt.compare(password, user.password))) {
     return next(new AppError(404, "credentials are invalid"));
