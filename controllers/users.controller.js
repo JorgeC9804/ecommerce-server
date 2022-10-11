@@ -116,7 +116,7 @@ exports.loginUser = catchAsync(async (req, res, next) => {
     expiresIn: "1h",
   });
 
-  // user.password = undefined;
+  user.password = undefined;
 
   res.status(200).json({
     status: "success",
