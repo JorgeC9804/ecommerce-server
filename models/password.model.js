@@ -8,6 +8,10 @@ const Password = sequelize.define("password", {
     allowNull: false,
     autoIncrement: true,
   },
+  email: {
+    type: DataTypes.STRING(100),
+    allowNull: false,
+  },
   password: {
     type: DataTypes.STRING(100),
     allowNull: false,
